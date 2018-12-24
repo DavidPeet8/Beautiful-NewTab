@@ -57,13 +57,14 @@ document.getElementById("Time").innerHTML = clockHour + ":" + twoDig(clockMin);
 document.getElementById("Greet").innerHTML = "Good" + timeOfDay + "David";
 document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum + ", " + Year;
 
-readFireBase();
+FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 
 //news feed current temperature/weather
 
 //================================================================================================================
 
+// Determines greeting
 function getTimeOfDay() {
 	if (clockHour < 11) {
 		return " Morning "
@@ -74,11 +75,16 @@ function getTimeOfDay() {
 	}
 }
 
+
+//weather to add a 0 or not to our time
 function twoDig(num) {
 	if (num < 10) {
 		return "0" + num;
 	} else { return num; }
 }
+
+
+//selects random background image for this session
 function randBack() {
 	let backgrounds = new Array(12);
 	backgrounds[0] = "url(img/desk.JPG) no-repeat fixed center";
@@ -99,6 +105,7 @@ function randBack() {
 	document.getElementById("main").style.backgroundColor = "rgba(51, 51, 51, 0.8)";
 	document.getElementById("main").style.backgroundBlendMode = "multiply";
 }
+// -------------------------------------------- FIREBASE -------------------------------------------------
 
 function submitForm(e) {
 	console.log('HI');
@@ -107,22 +114,26 @@ function submitForm(e) {
 	let newFireRef = fireRef.push();
 	newFireRef.set({
 		task: task,
-		date: DayNum,
+		Day: DayNum,
+		Month: nMonth,
+		Year: Year
 	});
 
 	document.getElementById('TaskForm').reset();
 }
 
-function readFireBase() {
-	fireRef.on('value', gotData, errorData);
+
+function FireBase() {
+	fireRef.on('value', gotData, errorData); //like setting a listener
 }
+
 
 function gotData(data) {
 	if (data.val() != null) {
 		console.log(data.val());
 		let tasks = data.val();
 		let keys = Object.keys(tasks);
-		if (DayNum = tasks[keys[0]].date) {
+		if (DayNum === tasks[keys[0]].Day && nMonth === tasks[keys[0]].Month && Year === tasks[keys[0]].Year) {
 			document.getElementById('FBtoDo').innerText = null;
 			keys.forEach(el => {
 				if (tasks[el].task != "") {
@@ -134,9 +145,13 @@ function gotData(data) {
 		}
 	}
 }
+
+
 function errorData(error) {
 	console.log('error');
 }
+
+
 function clearTasks() {
 	firebase.database().ref().child('Tasks').remove();
 }
