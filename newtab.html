@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>NewTab</title>
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Cabin|Montserrat|Lobster+Two|Josefin+Sans|Montserrat|Muli"
+	 rel="stylesheet">
+
+	<!-- CSS-->
+	<link href="newtab.css" rel="stylesheet">
+
+	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+</head>
+
+<body>
+	<section id="main" class="splash darken">
+		<h1 id="Greet" class="title">Good TIMEOFDAY NAME</h1>
+
+		<div class="dateTime">
+			<p id="Date">It is: </p>
+		</div>
+		<h2 id="Time" style="position: absolute; top: 1vh; left: 2vw; font-size: 8vmin;">TIME</h2>
+
+		<div class="todoArea">
+			<div class= "FBArea hAlignMid">
+				<span class="focusHeader">Today's Focus:</span>
+				<span id="FBtoDo"></span>
+			</div>
+
+			<form class="hAlignMid" style="top: 53vh;" id = "TaskForm">
+				<input id ="focus"type="text" name="item" class="todo" placeholder="Focus ..."></input>
+				<input id="changeFocus" type="submit" value="Change" class="submit"></input>
+			</form>
+		</div>
+	</section>
+</body>
+
+<script src="js/config.js"></script>
+<script src="js/newtabScript.js"></script>
+
+</html>
