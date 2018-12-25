@@ -59,6 +59,7 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
+document.addEventListener('keydown', macros);
 
 //news feed current temperature/weather
 
@@ -140,7 +141,7 @@ function gotData(data) {
 					document.getElementById('FBtoDo').innerHTML += tasks[el].task + ", ";
 				}
 			});
-		}else{
+		} else {
 			clearTasks();
 		}
 	}
@@ -154,4 +155,51 @@ function errorData(error) {
 
 function clearTasks() {
 	firebase.database().ref().child('Tasks').remove();
+}
+
+// ------------------------------------- MACROS ----------------------------------------------
+
+function macros(event) {
+	console.log("keydown");
+	if (document.activeElement != document.getElementById('focus')) {
+		switch (event.keyCode) {
+
+			case 71:
+				console.log("Github");
+				document.location.href = 'https://github.com/';
+				break;
+
+			case 82:
+				console.log("Reddit");
+				document.location.href = 'https://www.reddit.com/explore';
+				break;
+
+			case 81:
+				console.log("QUEST");
+				document.location.href = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';
+				break;
+
+			case 76:
+				console.log("LEARN");
+				document.location.href = 'https://cas.uwaterloo.ca/cas/login?service=https%3a%2f%2flearn.uwaterloo.ca%2fd2l%2fcustom%2fcas%3ftarget%3d%252fd2l%252fhome%252f403538';
+				break;
+
+			case 77:
+				console.log("GMail");
+				document.location.href = 'https://mail.google.com/mail';
+				break;
+
+			case 89:
+				console.log("Youtube");
+				document.location.href = 'https://youtube.com';
+				break;
+
+			case 68:
+				console.log("Drive");
+				document.location.href = 'https://drive.google.com/drive/my-drive';
+				break;
+
+			default: console.log("not a macro " + event.keyCode); break;
+		}
+	}
 }

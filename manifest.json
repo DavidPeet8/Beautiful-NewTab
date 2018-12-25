@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.gstatic.com/firebasejs/5.6.0/; object-src 'self'",
   //needed for allowing external scripts
-  
+
   "name": "NewTabPage",
   "description": "Custom new tab page",
   "version": "2.0",
@@ -15,20 +15,10 @@
 
   "icons":{
     "64" : "icon.png"
-  },
-
-  "content_scripts": [
-    {
-    "matches": ["http://*/*" , "https://*/*"],
-    "js": ["js/contentScript.js"]
-  }
-  ],  
-
-  "background": {
-    "scripts": ["js/background.js"]
-  },
+  }, 
 
   "chrome_url_overrides": {
     "newtab" : "newtab.html"
   }
 }
+//note no need for content background or popup scripts

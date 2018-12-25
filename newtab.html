@@ -4,9 +4,12 @@
 <head>
 	<title>NewTab</title>
 	<meta http-equiv="Content-Security-Policy" content="script-src * data: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval';">
+	<meta charset="ISO-8859-1">
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Cabin|Montserrat|Lobster+Two|Josefin+Sans|Montserrat|Muli"
 	 rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+	 crossorigin="anonymous">
 
 	<!-- CSS-->
 	<link href="newtab.css" rel="stylesheet">
@@ -18,6 +21,15 @@
 <body>
 	<section id="main" class="splash darken">
 		<h1 id="Greet" class="title">Good TIMEOFDAY NAME</h1>
+		<div class="macroIcons">
+			<i class="fab fa-github" onclick="document.location.href = 'https://github.com/';"></i>
+			<i class="fab fa-reddit" onclick="document.location.href = 'https://www.reddit.com/explore';"></i>
+			<i class="fas fa-envelope" onclick="document.location.href = 'https://mail.google.com/mail';"></i>
+			<i class="fas fa-shield-alt" onclick="document.location.href = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';"></i>
+			<i class="fas fa-book icon" onclick="document.location.href = 'https://cas.uwaterloo.ca/cas/login?service=https%3a%2f%2flearn.uwaterloo.ca%2fd2l%2fcustom%2fcas%3ftarget%3d%252fd2l%252fhome%252f403538';"></i>
+			<i class = "fab fa-youtube" onclick="document.location.href = 'https://www.youtube.com/';"></i>
+			<i class = "fab fa-google-drive" onclick="document.location.href = 'https://drive.google.com/drive/my-drive';"></i>
+		</div>
 
 		<div class="dateTime">
 			<p id="Date">It is: </p>
@@ -25,14 +37,14 @@
 		<h2 id="Time" style="position: absolute; top: 1vh; left: 2vw; font-size: 8vmin;">TIME</h2>
 
 		<div class="todoArea">
-			<div class= "FBArea hAlignMid">
-				<span class="focusHeader">Today's Focus:</span>
+			<div class="FBArea hAlignMid">
+				<span class="focusHeader">Today's Focuses:</span>
 				<span id="FBtoDo"></span>
 			</div>
 
-			<form class="hAlignMid" style="top: 53vh;" id = "TaskForm">
-				<input id ="focus"type="text" name="item" class="todo" placeholder="Focus ..."></input>
-				<input id="changeFocus" type="submit" value="Change" class="submit"></input>
+			<form class="hAlignMid" style="top: 53vh;" id="TaskForm">
+				<input id="focus" type="text" name="item" class="todo" placeholder="Focus ..."></input>
+				<input id="changeFocus" type="submit" value="Add" class="submit"></input>
 			</form>
 		</div>
 	</section>

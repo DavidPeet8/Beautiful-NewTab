@@ -57,7 +57,7 @@ section{
 }
 .submit{
 	color: #fff;
-	background-color:#290060;
+	background-color:#444444;
 	box-shadow: none;
 	border: none;
 	border-radius: 4px;
@@ -66,10 +66,6 @@ section{
 	font-family: "Cabin";
 	font-size: 18pt;
 }
-.submit::active{
-	background-color: red;
-	transition: background-color 0.4s ease-out;
-}
 #FBtoDo{
 	position: relative;
 	font-family: "Montserrat";
@@ -77,14 +73,26 @@ section{
 }
 .focusHeader{
 	position: relative;
-	font-size: 18pt; 
+	font-size: 24pt; 
 	font-family: "Montserrat";
 	padding-right: 20px;
 }
 .FBArea{
 	position: relative;
-	top: 35vh;
+	top: 30vh;
 	width: 50%;
+}
+.macroIcons{
+	position: absolute;
+	top:0;
+	color: #a6a7a8;
+	min-width: 100%;
+	font-size: 60pt;
+	text-align: center;
+	margin-top: 20px;
+}
+.macroIcons i{
+	padding: 10px;
 }
 .hAlignMid{
 	position: absolute;
