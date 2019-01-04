@@ -60,6 +60,14 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 document.addEventListener('keydown', macros);
+document.getElementById('github').addEventListener('click', ()=> {document.location.href = 'https://github.com/';});
+document.getElementById('reddit').addEventListener('click', ()=> {document.location.href = 'https://www.reddit.com/explore';});
+document.getElementById('mail').addEventListener('click', ()=> {document.location.href = 'https://mail.google.com/mail';});
+document.getElementById('quest').addEventListener('click', ()=> {document.location.href = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';});
+document.getElementById('learn').addEventListener('click', ()=> {document.location.href = 'https://cas.uwaterloo.ca/cas/login?service=https%3a%2f%2flearn.uwaterloo.ca%2fd2l%2fcustom%2fcas%3ftarget%3d%252fd2l%252fhome%252f403538';});
+document.getElementById('youtube').addEventListener('click', ()=> {document.location.href = 'https://www.youtube.com/';});
+document.getElementById('drive').addEventListener('click', ()=> {document.location.href = 'https://drive.google.com/drive/my-drive';});
+document.getElementById('extensions').addEventListener('click', ()=> {chrome.tabs.create({ url: 'chrome://extensions' });});
 
 //news feed current temperature/weather
 
@@ -161,6 +169,7 @@ function clearTasks() {
 
 function macros(event) {
 	console.log("keydown");
+	console.log(event.keyCode);
 	if (document.activeElement != document.getElementById('focus')) {
 		switch (event.keyCode) {
 
@@ -197,6 +206,11 @@ function macros(event) {
 			case 68:
 				console.log("Drive");
 				document.location.href = 'https://drive.google.com/drive/my-drive';
+				break;
+
+			case 69:
+				console.log("Extensions");
+				chrome.tabs.create({ url: 'chrome://extensions' });
 				break;
 
 			default: console.log("not a macro " + event.keyCode); break;

@@ -1,9 +1,10 @@
+
 <!doctype html>
 <html>
 
 <head>
+	<meta name="theme-color" content="#4c4c4c"/>
 	<title>NewTab</title>
-	<meta http-equiv="Content-Security-Policy" content="script-src * data: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval';">
 	<meta charset="ISO-8859-1">
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Cabin|Montserrat|Lobster+Two|Josefin+Sans|Montserrat|Muli"
@@ -12,6 +13,7 @@
 	 crossorigin="anonymous">
 
 	<!-- CSS-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
 	<link href="newtab.css" rel="stylesheet">
 
 	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
@@ -21,14 +23,15 @@
 <body>
 	<section id="main" class="splash darken">
 		<h1 id="Greet" class="title">Good TIMEOFDAY NAME</h1>
-		<div class="macroIcons">
-			<i class="fab fa-github" onclick="document.location.href = 'https://github.com/';"></i>
-			<i class="fab fa-reddit" onclick="document.location.href = 'https://www.reddit.com/explore';"></i>
-			<i class="fas fa-envelope" onclick="document.location.href = 'https://mail.google.com/mail';"></i>
-			<i class="fas fa-shield-alt" onclick="document.location.href = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';"></i>
-			<i class="fas fa-book icon" onclick="document.location.href = 'https://cas.uwaterloo.ca/cas/login?service=https%3a%2f%2flearn.uwaterloo.ca%2fd2l%2fcustom%2fcas%3ftarget%3d%252fd2l%252fhome%252f403538';"></i>
-			<i class = "fab fa-youtube" onclick="document.location.href = 'https://www.youtube.com/';"></i>
-			<i class = "fab fa-google-drive" onclick="document.location.href = 'https://drive.google.com/drive/my-drive';"></i>
+		<div class="macroIcons animated bounceIn">
+			<i id = "github" class="fab fa-github"></i>
+			<i id = "reddit" class="fab fa-reddit"></i>
+			<i id = "mail" class="fas fa-envelope"></i>
+			<i id = "quest" class="fas fa-shield-alt"></i>
+			<i id = "learn" class="fas fa-book icon"></i>
+			<i id = "youtube" class = "fab fa-youtube"></i>
+			<i id = "drive" class = "fab fa-google-drive"></i>
+			<i id = "extensions" class = "fas fa-link"></i>
 		</div>
 
 		<div class="dateTime">
