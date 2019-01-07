@@ -47,6 +47,17 @@ let sMonth = months[TIME.getMonth()];
 let nMonth = TIME.getMonth();
 let Year = TIME.getFullYear();
 
+let links = new Array(8);
+links[0] = 'https://github.com/';
+links[1] = 'https://www.reddit.com/explore';
+links[2] = 'https://mail.google.com/mail';
+links[3] = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';
+links[4] = 'https://learn.uwaterloo.ca';
+links[5] = 'https://www.youtube.com/';
+links[6] = 'https://drive.google.com/drive/my-drive';
+links[7] = 'chrome://extensions';
+
+
 //================================================================================================================
 
 //main
@@ -60,14 +71,14 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 document.addEventListener('keydown', macros);
-document.getElementById('github').addEventListener('click', ()=> {document.location.href = 'https://github.com/';});
-document.getElementById('reddit').addEventListener('click', ()=> {document.location.href = 'https://www.reddit.com/explore';});
-document.getElementById('mail').addEventListener('click', ()=> {document.location.href = 'https://mail.google.com/mail';});
-document.getElementById('quest').addEventListener('click', ()=> {document.location.href = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';});
-document.getElementById('learn').addEventListener('click', ()=> {document.location.href = 'https://cas.uwaterloo.ca/cas/login?service=https%3a%2f%2flearn.uwaterloo.ca%2fd2l%2fcustom%2fcas%3ftarget%3d%252fd2l%252fhome%252f403538';});
-document.getElementById('youtube').addEventListener('click', ()=> {document.location.href = 'https://www.youtube.com/';});
-document.getElementById('drive').addEventListener('click', ()=> {document.location.href = 'https://drive.google.com/drive/my-drive';});
-document.getElementById('extensions').addEventListener('click', ()=> {chrome.tabs.create({ url: 'chrome://extensions' });});
+document.getElementById('github').addEventListener('click', ()=> {document.location.href = links[0];});
+document.getElementById('reddit').addEventListener('click', ()=> {document.location.href = links[1];});
+document.getElementById('mail').addEventListener('click', ()=> {document.location.href = links[2];});
+document.getElementById('quest').addEventListener('click', ()=> {document.location.href = links[3];});
+document.getElementById('learn').addEventListener('click', ()=> {document.location.href = links[4];});
+document.getElementById('youtube').addEventListener('click', ()=> {document.location.href = links[5];});
+document.getElementById('drive').addEventListener('click', ()=> {document.location.href = links[6];});
+document.getElementById('extensions').addEventListener('click', ()=> {chrome.tabs.create({ url: links[7] });});
 
 //news feed current temperature/weather
 
@@ -175,42 +186,42 @@ function macros(event) {
 
 			case 71:
 				console.log("Github");
-				document.location.href = 'https://github.com/';
+				document.location.href = links[0];
 				break;
 
 			case 82:
 				console.log("Reddit");
-				document.location.href = 'https://www.reddit.com/explore';
+				document.location.href = links[1];
 				break;
 
 			case 81:
 				console.log("QUEST");
-				document.location.href = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';
+				document.location.href = links[3];
 				break;
 
 			case 76:
 				console.log("LEARN");
-				document.location.href = 'https://cas.uwaterloo.ca/cas/login?service=https%3a%2f%2flearn.uwaterloo.ca%2fd2l%2fcustom%2fcas%3ftarget%3d%252fd2l%252fhome%252f403538';
+				document.location.href = links[4];
 				break;
 
 			case 77:
 				console.log("GMail");
-				document.location.href = 'https://mail.google.com/mail';
+				document.location.href = links[2];
 				break;
 
 			case 89:
 				console.log("Youtube");
-				document.location.href = 'https://youtube.com';
+				document.location.href = links[5];
 				break;
 
 			case 68:
 				console.log("Drive");
-				document.location.href = 'https://drive.google.com/drive/my-drive';
+				document.location.href = links[6];
 				break;
 
 			case 69:
 				console.log("Extensions");
-				chrome.tabs.create({ url: 'chrome://extensions' });
+				chrome.tabs.create({ url: links[7] });
 				break;
 
 			default: console.log("not a macro " + event.keyCode); break;
