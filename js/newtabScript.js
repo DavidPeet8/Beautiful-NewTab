@@ -71,13 +71,13 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 document.addEventListener('keydown', macros);
-document.getElementById('github').addEventListener('click', ()=> {document.location.href = links[0];});
-document.getElementById('reddit').addEventListener('click', ()=> {document.location.href = links[1];});
-document.getElementById('mail').addEventListener('click', ()=> {document.location.href = links[2];});
-document.getElementById('quest').addEventListener('click', ()=> {document.location.href = links[3];});
-document.getElementById('learn').addEventListener('click', ()=> {document.location.href = links[4];});
-document.getElementById('youtube').addEventListener('click', ()=> {document.location.href = links[5];});
-document.getElementById('drive').addEventListener('click', ()=> {document.location.href = links[6];});
+document.getElementById('github').addEventListener('click', ()=> {window.open(links[0], '_blank');});
+document.getElementById('reddit').addEventListener('click', ()=> {window.open(links[1], '_blank');});
+document.getElementById('mail').addEventListener('click', ()=> {window.open(links[2], '_blank');});
+document.getElementById('quest').addEventListener('click', ()=> {window.open(links[3], '_blank');});
+document.getElementById('learn').addEventListener('click', ()=> {window.open(links[4], '_blank');});
+document.getElementById('youtube').addEventListener('click', ()=> {window.open(links[5], '_blank');});
+document.getElementById('drive').addEventListener('click', ()=> {window.open(links[6], '_blank');});
 document.getElementById('extensions').addEventListener('click', ()=> {chrome.tabs.create({ url: links[7] });});
 
 //news feed current temperature/weather
@@ -186,37 +186,37 @@ function macros(event) {
 
 			case 71:
 				console.log("Github");
-				document.location.href = links[0];
+				window.open(links[0], '_blank');
 				break;
 
 			case 82:
 				console.log("Reddit");
-				document.location.href = links[1];
+				window.open(links[1], '_blank');
 				break;
 
 			case 81:
 				console.log("QUEST");
-				document.location.href = links[3];
+				window.open(links[3], '_blank');
 				break;
 
 			case 76:
 				console.log("LEARN");
-				document.location.href = links[4];
+				window.open(links[4], '_blank');
 				break;
 
 			case 77:
 				console.log("GMail");
-				document.location.href = links[2];
+				window.open(links[2], '_blank');
 				break;
 
 			case 89:
 				console.log("Youtube");
-				document.location.href = links[5];
+				window.open(links[5], '_blank');
 				break;
 
 			case 68:
 				console.log("Drive");
-				document.location.href = links[6];
+				window.open(links[6], '_blank');
 				break;
 
 			case 69:
