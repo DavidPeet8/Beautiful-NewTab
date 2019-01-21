@@ -46,6 +46,7 @@ let DayNum = TIME.getDate();
 let sMonth = months[TIME.getMonth()];
 let nMonth = TIME.getMonth();
 let Year = TIME.getFullYear();
+let newTabWindow = window;
 
 let links = new Array(8);
 links[0] = 'https://github.com/';
@@ -71,13 +72,13 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 document.addEventListener('keydown', macros);
-document.getElementById('github').addEventListener('click', ()=> {window.open(links[0], '_blank');});
-document.getElementById('reddit').addEventListener('click', ()=> {window.open(links[1], '_blank');});
-document.getElementById('mail').addEventListener('click', ()=> {window.open(links[2], '_blank');});
-document.getElementById('quest').addEventListener('click', ()=> {window.open(links[3], '_blank');});
-document.getElementById('learn').addEventListener('click', ()=> {window.open(links[4], '_blank');});
-document.getElementById('youtube').addEventListener('click', ()=> {window.open(links[5], '_blank');});
-document.getElementById('drive').addEventListener('click', ()=> {window.open(links[6], '_blank');});
+document.getElementById('github').addEventListener('click', ()=> {document.location.href = links[0]});
+document.getElementById('reddit').addEventListener('click', ()=> {document.location.href = links[1]});
+document.getElementById('mail').addEventListener('click', ()=> {document.location.href = links[2]});
+document.getElementById('quest').addEventListener('click', ()=> {document.location.href = links[3]});
+document.getElementById('learn').addEventListener('click', ()=> {document.location.href = links[4]});
+document.getElementById('youtube').addEventListener('click', ()=> {document.location.href = links[5]});
+document.getElementById('drive').addEventListener('click', ()=> {document.location.href = links[6]});
 document.getElementById('extensions').addEventListener('click', ()=> {chrome.tabs.create({ url: links[7] });});
 
 //news feed current temperature/weather
