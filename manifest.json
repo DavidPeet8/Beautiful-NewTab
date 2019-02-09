@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com/; object-src 'self';",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://*.firebaseio.com/; object-src 'self';",
 
   "name": "NewTabPage",
   "description": "Custom new tab page",
