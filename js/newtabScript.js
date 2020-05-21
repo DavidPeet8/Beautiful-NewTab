@@ -108,18 +108,18 @@ function twoDig(num) {
 //selects random background image for this session
 function randBack() {
 	let backgrounds = new Array(12);
-	backgrounds[0] = "url(img/desk.JPG) no-repeat fixed center";
-	backgrounds[1] = "url(img/desk2.JPG) no-repeat fixed center";
-	backgrounds[2] = "url(img/stars.JPG) no-repeat fixed center";
-	backgrounds[3] = "url(img/sunset.JPG) no-repeat fixed center";
-	backgrounds[4] = "url(img/sunset2.JPG) no-repeat fixed center";
-	backgrounds[5] = "url(img/watch.JPG) no-repeat fixed center";
-	backgrounds[6] = "url(img/candle.JPG) no-repeat fixed center";
-	backgrounds[7] = "url(img/minimalist.JPG) no-repeat fixed center";
-	backgrounds[8] = "url(img/minimalist2.JPG) no-repeat fixed center";
-	backgrounds[9] = "url(img/lightbulb.JPG) no-repeat fixed center";
-	backgrounds[10] = "url(img/hotairbaloon.JPG) no-repeat fixed center";
-	backgrounds[11] = "url(img/rocks.JPG) no-repeat fixed center";
+	backgrounds[0] = "url(img/desk.jpg) no-repeat fixed center";
+	backgrounds[1] = "url(img/desk2.jpg) no-repeat fixed center";
+	backgrounds[2] = "url(img/stars.jpg) no-repeat fixed center";
+	backgrounds[3] = "url(img/sunset.jpg) no-repeat fixed center";
+	backgrounds[4] = "url(img/sunset2.jpg) no-repeat fixed center";
+	backgrounds[5] = "url(img/watch.jpg) no-repeat fixed center";
+	backgrounds[6] = "url(img/candle.jpg) no-repeat fixed center";
+	backgrounds[7] = "url(img/minimalist.jpg) no-repeat fixed center";
+	backgrounds[8] = "url(img/minimalist2.jpg) no-repeat fixed center";
+	backgrounds[9] = "url(img/lightbulb.jpg) no-repeat fixed center";
+	backgrounds[10] = "url(img/hotairbaloon.jpg) no-repeat fixed center";
+	backgrounds[11] = "url(img/rocks.jpg) no-repeat fixed center";
 
 	document.getElementById("main").style.background = backgrounds[Math.floor(Math.random() * 12)];
 	document.getElementById("main").style.backgroundSize = "cover";
@@ -129,7 +129,6 @@ function randBack() {
 // -------------------------------------------- FIREBASE -------------------------------------------------
 
 function submitForm(e) {
-	console.log('HI');
 	e.preventDefault();
 	let task = document.getElementById('focus').value;
 	let newFireRef = fireRef.push();
