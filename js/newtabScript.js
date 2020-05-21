@@ -25,19 +25,20 @@ weekdays[4] = "Thursday";
 weekdays[5] = "Friday";
 weekdays[6] = "Saturday";
 
-let months = new Array(12);
-months[0] = "January";
-months[1] = "Febuary";
-months[2] = "March";
-months[3] = "April";
-months[4] = "May";
-months[5] = "June";
-months[6] = "July";
-months[7] = "August";
-months[8] = "September";
-months[9] = "October";
-months[10] = "November";
-months[11] = "December";
+let months = [
+	"January",
+	"Febuary",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
 
 let clockHour = TIME.getHours();
 let clockMin = TIME.getMinutes();
@@ -46,17 +47,18 @@ let DayNum = TIME.getDate();
 let sMonth = months[TIME.getMonth()];
 let nMonth = TIME.getMonth();
 let Year = TIME.getFullYear();
-let newTabWindow = window;
 
-let links = new Array(8);
-links[0] = 'https://github.com/';
-links[1] = 'https://www.reddit.com/explore';
-links[2] = 'https://mail.google.com/mail';
-links[3] = 'https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG';
-links[4] = 'https://learn.uwaterloo.ca';
-links[5] = 'https://www.youtube.com/';
-links[6] = 'https://drive.google.com/drive/my-drive';
-links[7] = 'chrome://extensions';
+let links = [
+	'https://github.com/',
+	'https://www.reddit.com',
+	'https://mail.google.com/mail',
+	'https://quest.pecs.uwaterloo.ca',
+	'https://learn.uwaterloo.ca',
+	'https://www.youtube.com/',
+	'https://drive.google.com/drive/my-drive',
+	'https://analytics.google.com/',
+];
+
 
 
 //================================================================================================================
@@ -64,7 +66,6 @@ links[7] = 'chrome://extensions';
 //main
 randBack();
 let timeOfDay = getTimeOfDay();
-let myName;
 document.getElementById("Time").innerHTML = clockHour + ":" + twoDig(clockMin);
 document.getElementById("Greet").innerHTML = "Good" + timeOfDay + "David";
 document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum + ", " + Year;
@@ -72,14 +73,14 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 document.addEventListener('keydown', macros);
-document.getElementById('github').addEventListener('click', ()=> {window.open(links[0], '_blank');});
-document.getElementById('reddit').addEventListener('click', ()=> {window.open(links[1], '_blank');});
-document.getElementById('mail').addEventListener('click', ()=> {window.open(links[2], '_blank');});
-document.getElementById('quest').addEventListener('click', ()=> {window.open(links[3], '_blank');});
-document.getElementById('learn').addEventListener('click', ()=> {window.open(links[4], '_blank');});
-document.getElementById('youtube').addEventListener('click', ()=> {window.open(links[5], '_blank');});
-document.getElementById('drive').addEventListener('click', ()=> {window.open(links[6], '_blank');});
-document.getElementById('extensions').addEventListener('click', ()=> {chrome.tabs.create({ url: links[7] });});
+document.getElementById('github').addEventListener('click', () => {window.open(links[0], '_blank');});
+document.getElementById('reddit').addEventListener('click', () => {window.open(links[1], '_blank');});
+document.getElementById('mail').addEventListener('click', () => {window.open(links[2], '_blank');});
+document.getElementById('quest').addEventListener('click', () => {window.open(links[3], '_blank');});
+document.getElementById('learn').addEventListener('click', () => {window.open(links[4], '_blank');});
+document.getElementById('youtube').addEventListener('click', () => {window.open(links[5], '_blank');});
+document.getElementById('drive').addEventListener('click', () => {window.open(links[6], '_blank');});
+document.getElementById('extensions').addEventListener('click', () => {chrome.tabs.create({ url: links[7] });});
 
 //news feed current temperature/weather
 
@@ -99,30 +100,28 @@ function getTimeOfDay() {
 
 //weather to add a 0 or not to our time
 function twoDig(num) {
-	if (num < 10) {
-		return "0" + num;
-	} else { return num; }
+	return (num < 10) ? '0' + num : num;
 }
 
 
 //selects random background image for this session
 function randBack() {
-	let backgrounds = new Array(12);
-	backgrounds[0] = "url(img/desk.jpg) no-repeat fixed center";
-	backgrounds[1] = "url(img/desk2.jpg) no-repeat fixed center";
-	backgrounds[2] = "url(img/stars.jpg) no-repeat fixed center";
-	backgrounds[3] = "url(img/sunset.jpg) no-repeat fixed center";
-	backgrounds[4] = "url(img/sunset2.jpg) no-repeat fixed center";
-	backgrounds[5] = "url(img/watch.jpg) no-repeat fixed center";
-	backgrounds[6] = "url(img/candle.jpg) no-repeat fixed center";
-	backgrounds[7] = "url(img/minimalist.jpg) no-repeat fixed center";
-	backgrounds[8] = "url(img/minimalist2.jpg) no-repeat fixed center";
-	backgrounds[9] = "url(img/lightbulb.jpg) no-repeat fixed center";
-	backgrounds[10] = "url(img/hotairbaloon.jpg) no-repeat fixed center";
-	backgrounds[11] = "url(img/rocks.jpg) no-repeat fixed center";
+	let backgrounds = [
+		"url(img/desk.jpg)",
+		"url(img/desk2.jpg)",
+		"url(img/stars.jpg)",
+		"url(img/sunset.jpg)",
+		"url(img/sunset2.jpg)",
+		"url(img/watch.jpg)",
+		"url(img/candle.jpg)",
+		"url(img/minimalist.jpg)",
+		"url(img/minimalist2.jpg)",
+		"url(img/lightbulb.jpg)",
+		"url(img/hotairbaloon.jpg)",
+		"url(img/rocks.jpg)",
+	];
 
-	document.getElementById("main").style.background = backgrounds[Math.floor(Math.random() * 12)];
-	document.getElementById("main").style.backgroundSize = "cover";
+	document.getElementById("main").style.backgroundImage = backgrounds[Math.floor(Math.random() * 12)];
 	document.getElementById("main").style.backgroundColor = "rgba(51, 51, 51, 0.8)";
 	document.getElementById("main").style.backgroundBlendMode = "multiply";
 }
@@ -179,7 +178,6 @@ function clearTasks() {
 // ------------------------------------- MACROS ----------------------------------------------
 
 function macros(event) {
-	console.log("keydown");
 	console.log(event.keyCode);
 	if (document.activeElement != document.getElementById('focus')) {
 		switch (event.keyCode) {
@@ -195,12 +193,12 @@ function macros(event) {
 				break;
 
 			case 81:
-				console.log("QUEST");
+				console.log("Quest");
 				document.location.href = links[3];
 				break;
 
 			case 76:
-				console.log("LEARN");
+				console.log("Learn");
 				document.location.href = links[4];
 				break;
 
@@ -219,8 +217,8 @@ function macros(event) {
 				document.location.href = links[6];
 				break;
 
-			case 69:
-				console.log("Extensions");
+			case 65:
+				console.log("Analytics");
 				chrome.tabs.create({ url: links[7] });
 				break;
 

@@ -26,8 +26,6 @@ section{
 	color: white;
 	background: url(img/watch.JPG) no-repeat fixed center;
 	background-size: cover; 
-	width: 100vw;
-	height: 100vh;
 }
 .dateTime{
 	position: relative;
@@ -110,4 +108,13 @@ section{
 	position: absolute;
 	top: 50%;
 	transform: translate(0, -50%);
+}
+
+.main {
+	width: 100vw;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
 }
