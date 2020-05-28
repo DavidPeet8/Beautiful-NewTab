@@ -1,6 +1,7 @@
 // Newtab javascript file
+// This code looks horrible - please disregard, written years ago, I don't really feel like fixing it
 
-//David Peet
+// David Peet
 
 // Initialize Firebase
 var config = {
@@ -16,14 +17,15 @@ firebase.initializeApp(config);
 let fireRef = firebase.database().ref('Tasks');
 
 let TIME = new Date();
-let weekdays = new Array(7);
-weekdays[0] = "Sunday";
-weekdays[1] = "Monday";
-weekdays[2] = "Tuesday";
-weekdays[3] = "Wednesday";
-weekdays[4] = "Thursday";
-weekdays[5] = "Friday";
-weekdays[6] = "Saturday";
+let weekdays = [
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday",
+];
 
 let months = [
 	"January",
@@ -57,6 +59,7 @@ let links = [
 	'https://www.youtube.com/',
 	'https://drive.google.com/drive/my-drive',
 	'https://analytics.google.com/',
+	'https://www.linkedin.com/in/dapeet/'
 ];
 
 
@@ -66,7 +69,6 @@ let links = [
 //main
 randBack();
 let timeOfDay = getTimeOfDay();
-document.getElementById("Time").innerHTML = clockHour + ":" + twoDig(clockMin);
 document.getElementById("Greet").innerHTML = "Good" + timeOfDay + "David";
 document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum + ", " + Year;
 
@@ -80,9 +82,7 @@ document.getElementById('quest').addEventListener('click', () => {window.open(li
 document.getElementById('learn').addEventListener('click', () => {window.open(links[4], '_blank');});
 document.getElementById('youtube').addEventListener('click', () => {window.open(links[5], '_blank');});
 document.getElementById('drive').addEventListener('click', () => {window.open(links[6], '_blank');});
-document.getElementById('extensions').addEventListener('click', () => {chrome.tabs.create({ url: links[7] });});
-
-//news feed current temperature/weather
+document.getElementById('outlook').addEventListener('click', () => {chrome.tabs.create({ url: links[7] });});
 
 //================================================================================================================
 
@@ -95,12 +95,6 @@ function getTimeOfDay() {
 	} else {
 		return " Evening ";
 	}
-}
-
-
-//weather to add a 0 or not to our time
-function twoDig(num) {
-	return (num < 10) ? '0' + num : num;
 }
 
 
@@ -121,9 +115,10 @@ function randBack() {
 		"url(img/rocks.jpg)",
 	];
 
-	document.getElementById("main").style.backgroundImage = backgrounds[Math.floor(Math.random() * 12)];
-	document.getElementById("main").style.backgroundColor = "rgba(51, 51, 51, 0.8)";
-	document.getElementById("main").style.backgroundBlendMode = "multiply";
+	let el = document.getElementById("main").style;
+	el.backgroundImage = backgrounds[Math.floor(Math.random() * 12)];
+	el.backgroundColor = "rgba(51, 51, 51, 0.8)";
+	el.backgroundBlendMode = "multiply";
 }
 // -------------------------------------------- FIREBASE -------------------------------------------------
 
@@ -184,7 +179,8 @@ function macros(event) {
 
 			case 71:
 				console.log("Github");
-				document.location.href = links[0];
+				chrome.tabs.create({ url: links[0] });
+				chrome.tabs.create({ url: links[8] });
 				break;
 
 			case 82:
