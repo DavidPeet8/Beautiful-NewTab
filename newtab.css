@@ -24,7 +24,7 @@ section{
 .splash{
 	position: relative;
 	color: white;
-	background: url(img/watch.JPG) no-repeat fixed center;
+	background: url(img/watch.jpg) no-repeat fixed center;
 	background-size: cover; 
 }
 .dateTime{
@@ -83,11 +83,13 @@ section{
 .macroIcons{
 	position: absolute;
 	top:0;
-	color: #a6a7a8;
 	min-width: 100%;
 	font-size: 60pt;
 	text-align: center;
 	margin-top: 20px;
+}
+.macroIcons a{
+	color: #a6a7a8;
 }
 .macroIcons i{
 	padding: 10px;

@@ -50,19 +50,6 @@ let sMonth = months[TIME.getMonth()];
 let nMonth = TIME.getMonth();
 let Year = TIME.getFullYear();
 
-let links = [
-	'https://github.com/',
-	'https://www.reddit.com',
-	'https://mail.google.com/mail',
-	'https://quest.pecs.uwaterloo.ca',
-	'https://learn.uwaterloo.ca',
-	'https://www.youtube.com/',
-	'https://drive.google.com/drive/my-drive',
-	'https://analytics.google.com/',
-	'https://www.linkedin.com/in/dapeet/'
-];
-
-
 
 //================================================================================================================
 
@@ -75,14 +62,7 @@ document.getElementById("Date").innerHTML += Today + " " + sMonth + " " + DayNum
 FireBase();
 document.getElementById('changeFocus').addEventListener('click', submitForm);
 document.addEventListener('keydown', macros);
-document.getElementById('github').addEventListener('click', () => {window.open(links[0], '_blank');});
-document.getElementById('reddit').addEventListener('click', () => {window.open(links[1], '_blank');});
-document.getElementById('mail').addEventListener('click', () => {window.open(links[2], '_blank');});
-document.getElementById('quest').addEventListener('click', () => {window.open(links[3], '_blank');});
-document.getElementById('learn').addEventListener('click', () => {window.open(links[4], '_blank');});
-document.getElementById('youtube').addEventListener('click', () => {window.open(links[5], '_blank');});
-document.getElementById('drive').addEventListener('click', () => {window.open(links[6], '_blank');});
-document.getElementById('outlook').addEventListener('click', () => {chrome.tabs.create({ url: links[7] });});
+document.addEventListener('keyup', ctrlreset);
 
 //================================================================================================================
 
@@ -172,53 +152,81 @@ function clearTasks() {
 
 // ------------------------------------- MACROS ----------------------------------------------
 
+let ctrl = false;
+
+function ctrlreset(event) 
+{
+	if (event.keyCode == 17) 
+	{
+		console.log("crtl unpressed");
+		ctrl = false;
+	}
+}
+
+function goto(id)
+{
+	if (ctrl)
+	{ 
+		// Simulate a ctrl click
+		document.getElementById(id).dispatchEvent(new MouseEvent('click', {ctrlKey: true, button: 0}));
+		window.focus();
+		return;
+	}
+	document.getElementById(id).dispatchEvent(new MouseEvent('click'));
+}
+
 function macros(event) {
 	console.log(event.keyCode);
 	if (document.activeElement != document.getElementById('focus')) {
 		switch (event.keyCode) {
+			case 17:
+				console.log("Ctrl pressed");
+				ctrl = true;
+				break;
 
-			case 71:
+			case 71: // G
 				console.log("Github");
-				chrome.tabs.create({ url: links[0] });
-				chrome.tabs.create({ url: links[8] });
+				goto('github');
 				break;
 
-			case 82:
-				console.log("Reddit");
-				document.location.href = links[1];
-				break;
-
-			case 81:
+			case 81: // Q
 				console.log("Quest");
-				document.location.href = links[3];
+				goto('quest');
 				break;
 
-			case 76:
+			case 76: // L
 				console.log("Learn");
-				document.location.href = links[4];
+				goto('learn');
 				break;
 
-			case 77:
+			case 77: // M
 				console.log("GMail");
-				document.location.href = links[2];
+				goto('mail');
 				break;
 
-			case 89:
+			case 89: // Y
 				console.log("Youtube");
-				document.location.href = links[5];
+				goto('youtube');
 				break;
 
-			case 68:
+			case 68: // D
 				console.log("Drive");
-				document.location.href = links[6];
+				goto('drive');
 				break;
 
-			case 65:
+			case 65: // A
 				console.log("Analytics");
-				chrome.tabs.create({ url: links[7] });
+				goto('analytics');
+				break;
+
+			case 73: // I
+				console.log("LinkedIn");
+				goto('linkedin');
 				break;
 
 			default: console.log("not a macro " + event.keyCode); break;
 		}
 	}
 }
+
+
