@@ -81,22 +81,32 @@ function getTimeOfDay() {
 //selects random background image for this session
 function randBack() {
 	let backgrounds = [
-		"url(img/desk.jpg)",
-		"url(img/desk2.jpg)",
-		"url(img/stars.jpg)",
-		"url(img/sunset.jpg)",
-		"url(img/sunset2.jpg)",
-		"url(img/watch.jpg)",
-		"url(img/candle.jpg)",
-		"url(img/minimalist.jpg)",
-		"url(img/minimalist2.jpg)",
-		"url(img/lightbulb.jpg)",
-		"url(img/hotairbaloon.jpg)",
-		"url(img/rocks.jpg)",
+		"desk.jpg",
+		"desk2.jpg",
+		"sunset.jpg",
+		"minimalist.jpg",
+		"lightbulb.jpg",
+		"rocks.jpg",
+		'absPoly.png',
+		'lines.png',
+		'sea.jpg',
+		'space.jpg',
+		'squiggle.png',
+		'wave.png',
+		'aurora.jpg',
+		'aurora2.jpg',
+		'aurora3.jpg',
+		'aurora4.jpg',
+		'berries.jpg',
+		'berries2.jpg',
+		'glass.jpg',
+		'lightning.jpg',
+		'porsche.jpg',
+		'water.jpg',
 	];
 
 	let el = document.getElementById("main").style;
-	el.backgroundImage = backgrounds[Math.floor(Math.random() * 12)];
+	el.backgroundImage = "url(img/" + backgrounds[Math.floor(Math.random() * backgrounds.length)] + ")";
 	el.backgroundColor = "rgba(51, 51, 51, 0.8)";
 	el.backgroundBlendMode = "multiply";
 }

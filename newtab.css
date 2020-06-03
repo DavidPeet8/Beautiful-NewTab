@@ -15,16 +15,17 @@ section{
 	margin: 0;
 	padding: 0;
 }
+
 .title{
 	position: relative;
 	top: 30%;
 	margin: 0;
-	font-size: 13vmin;
+	font-size: 100pt;
 }
 .splash{
 	position: relative;
 	color: white;
-	background: url(img/watch.jpg) no-repeat fixed center;
+	background: no-repeat fixed center;
 	background-size: cover; 
 }
 .dateTime{
@@ -48,6 +49,7 @@ section{
 	font-family: "Muli";
 	font-size: 14pt;
 	margin-right: 20px;
+	margin-bottom: 10px;
 }
 .todoArea{
 	position: relative;
@@ -119,4 +121,35 @@ section{
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
+}
+@media only screen and (max-width: 1300px) and (min-width: 600px)
+{
+	.title {
+		font-size: 75pt;
+	}
+
+	.macroIcons {
+		font-size: 50pt;
+	}
+}
+@media only screen and (max-width: 900px) and (min-width: 600px) 
+{
+	.title {
+		font-size: 65pt;
+	}
+
+	.macroIcons {
+		font-size: 40pt;
+	}
+}
+
+@media only screen and (max-width: 599px) 
+{
+	.title {
+		font-size: 50pt;
+	}
+
+	.macroIcons {
+		font-size: 30pt;
+	}
 }
