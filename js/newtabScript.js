@@ -99,7 +99,6 @@ function randBack() {
 		'aurora4.jpg',
 		'berries.jpg',
 		'berries2.jpg',
-		'glass.jpg',
 		'lightning.jpg',
 		'porsche.jpg',
 		'water.jpg',
